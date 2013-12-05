@@ -22,6 +22,10 @@ endif
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.sf.lcd_density=160
 
+# XPERIENCE KITKAT LOW MEMORY
+PRODUCT_PROPERTY_OVERRIDES := \
+ro.config.low_ram=true
+
 # These is the hardware-specific overlay, which points to the location
 # of hardware-specific resource overrides, typically the frameworks and
 # application settings that are stored in resourced.
