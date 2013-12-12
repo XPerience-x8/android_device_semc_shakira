@@ -50,7 +50,6 @@ PRODUCT_PACKAGES += \
 
 # Extra packages
 PRODUCT_PACKAGES += \
-    ADWLauncher \
     Cyanbread \
     Androidian
 
@@ -161,7 +160,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.compcache.default=10 \
     ro.product.locale.region=US \
     persist.ro.ril.sms_sync_sending=1 \
-    net.bt.name=Android-MiniCM7
+    net.bt.name=Android-XPerience
 
 # Enable ti hotspot
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -177,9 +176,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.tethering.kb_disconnect=1
 
 # Theme Selection
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.themeId=MiniCM7 \
-    persist.sys.themePackageName=com.darkdog.theme.minicm7
+#PRODUCT_PROPERTY_OVERRIDES += \
+ #   persist.sys.themeId=MiniCM7 \
+  #  persist.sys.themePackageName=com.darkdog.theme.minicm7
 
 ## Extra prebuilt binaries
 PRODUCT_COPY_FILES += \
@@ -196,10 +195,8 @@ PRODUCT_COPY_FILES += \
    
 ## Themes
 PRODUCT_COPY_FILES += \
-    device/semc/shakira/prebuilt/MiniCM7.apk:system/app/MiniCM7.apk \
-    device/semc/shakira/prebuilt/OrangeHaze.apk:system/app/OrangeHaze.apk \
     device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png \
-    device/semc/shakira/prebuilt/bootanimation.zip:/system/media/bootanimation.zip
+   
 
 ## A2SD and extra init files
 PRODUCT_COPY_FILES += \
