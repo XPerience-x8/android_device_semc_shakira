@@ -4,6 +4,12 @@ echo 2400 > $dev/voltage_mv
 
 # lm3530 LMU configuration
 dev=/sys/devices/platform/i2c-adapter/i2c-0/0-0036
+
+if [ ! -f $dev ];
+then
+    dev=/sys/devices/i2c-0/0-0036
+fi
+
 echo linear > $dev/br::mapping  # linear exp
 echo 32768 > $dev/br::rate::up   # 8, 1024, 2048, 4096, 8192, 16384, 32768, 65538
 echo 32768 > $dev/br::rate::down # 8, 1024, 2048, 4096, 8192, 16384, 32768, 65538
@@ -25,8 +31,8 @@ echo "smartassV2" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold
 echo 30 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/down_differential
 echo 500000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate
-echo 122880 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-echo 600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo 245760 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 604800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
 # Flash LED configuration
 dev=/sys/devices/platform/msm_pmic_flash_led
@@ -35,7 +41,16 @@ echo 4700 > $dev/spotlight::boost_mv # spotlight boost voltage
 echo 480 > $dev/cmaflash::current_ma # camera flash current
 echo 5000 > $dev/cmaflash::boost_mv # camera flash  voltage
 
+#Fixes for brightness
+dev=/sys/devices/platform/msm_pmic_misc_led.0
+echo 255 > $dev/max::brightness
+echo 3 > $dev/als::cut-off
+zone "0"
+echo user_als > $dev/control::mode
+echo 40 > $dev/max::current_ma
+
 mount -o rw,remount -t yaffs2 /dev/block/mtdblock0 /system
 chmod u+s /system/bin/charger
 mount -o ro,remount -t yaffs2 /dev/block/mtdblock0 /system
 rm -rf /data/local/download/*
+chmod 0150 /storage/

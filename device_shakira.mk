@@ -55,11 +55,6 @@ PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/tiwlan.ini:system/etc/wifi/tiwlan.ini \
     device/semc/shakira/prebuilt/tiwlan_ap.ini:system/etc/wifi/softap/tiwlan_ap.ini
 
-# Themes
-PRODUCT_COPY_FILES += \
-    device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png \
-	device/semc/shakira/prebuilt/bootanimation.zip:system/media/bootanimation.zip
-
 # Touchsceen
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
