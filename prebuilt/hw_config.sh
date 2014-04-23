@@ -27,7 +27,7 @@ dev=/sys/devices/platform/proximity-sensor/semc/proximity-sensor
 echo  15 > $dev/led_on_ms         # sensor LED on time in ms
 echo  35 > $dev/led_off_ms       # sensor LED off time in ms
 
-echo "smartassV2" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "smartassH3" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold
 echo 30 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/down_differential
 echo 500000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate
@@ -53,4 +53,5 @@ mount -o rw,remount -t yaffs2 /dev/block/mtdblock0 /system
 chmod u+s /system/bin/charger
 mount -o ro,remount -t yaffs2 /dev/block/mtdblock0 /system
 rm -rf /data/local/download/*
+
 chmod 0150 /storage/
