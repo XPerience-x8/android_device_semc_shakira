@@ -53,7 +53,6 @@ PRODUCT_COPY_FILES += \
 # Wifi firmware
 PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/tiwlan.ini:system/etc/wifi/tiwlan.ini \
-    device/semc/shakira/prebuilt/tiwlan_ap.ini:system/etc/wifi/softap/tiwlan_ap.ini
 
 # Touchsceen
 PRODUCT_COPY_FILES += \
